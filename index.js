@@ -23,7 +23,7 @@ function playRound(playerSelection, computerSelection) {
         return lose
     } else if (computerSelection == 'scissors') {
         return win
-    } else if (computerSelection == playerSelection) {
+    } else if (computerSelection == 'rock') {
         return tie
     }
 
@@ -32,7 +32,7 @@ function playRound(playerSelection, computerSelection) {
         return lose
     } else if (computerSelection == 'rock') {
         return win
-    } else if (computerSelection == playerSelection) {
+    } else if (computerSelection == 'paper') {
         return tie
     }
 
@@ -40,14 +40,34 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == 'scissors' && computerSelection == 'rock') {
         return lose
-    } else if (computerSelection == 'paper') {
+    } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
         return win
-    } else if (computerSelection == playerSelection) {
+    } else if (playerSelection == 'scissors' && computerSelection == 'scissors') {
         return tie
     }
 }
 
-const playerSelection = 'scissors'
-const computerSelection = getComputerChoice()
 
-console.log(playRound(playerSelection, computerSelection))
+
+function playGame(){
+    let score = 0
+    for(i = 0; i<5;){
+        playerSelection = prompt()
+        computerSelection = getComputerChoice()
+
+        let roundResult = playRound(playerSelection, computerSelection)
+        if(roundResult.includes('win') == true){
+            score++
+        } else if(roundResult.includes('lose') == true){
+            score--
+        }
+
+        console.log(roundResult)
+        console.log(score)
+        i++
+    }
+}
+
+playGame()
+
+
