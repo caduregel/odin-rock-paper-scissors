@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+
+/* Header Styles */
+
+header {
+    background-color: #1F2937;
+    margin: 0;
+    padding: 0% 20%;
+    color: white;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.nav-flex-container {
+    display: flex;
+    color: white;
+    align-items: center;
+}
+
+.flex-container h2 {
+    flex: 1;
+    font-weight: bold;
+}
+
+/* Player Selector Button Styles */
+
+.player-selector-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.player-selector-buttons li {
+    list-style-type: none;
+}
+
+.player-selector-buttons button {
+    height: 100px;
+    width: 100px;
+}
