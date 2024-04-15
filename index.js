@@ -8,6 +8,7 @@ function getComputerChoice() {
     return computerChoice
 }
 
+// Deciding who wins the round based on player and computer inputs
 function playRound(playerSelection, computerSelection) {
     const win = computerSelection + "! You win (:"
     const lose = computerSelection + "! You lose ):"
@@ -51,42 +52,42 @@ function playRound(playerSelection, computerSelection) {
 //Code that needs to wait untill the page is fully loaded( Such as calling DOM elements)
 function init() {
 
-    const selectorButton = document.querySelectorAll('.selectorButton')
+    const rockButton = document.querySelector('#rock')
+    const scissorsButton = document.querySelector('#scissors')
+    const paperButton = document.querySelector('#paper')
+
+    const computerScoreDisplay = document.querySelector('#computer-score')
+    const playerScoreDisplay = document.querySelector('#player-score')
+    const roundResult = document.querySelector('#round-results')
     let playerScore = 0
     let computerScore = 0
 
+    function checkResult (gameResult) {
+        roundResult.textContent = gameResult
+            if (gameResult.includes('win') == true) {
+                playerScore = playerScore + 1
+                playerScoreDisplay.textContent = 'you: ' + playerScore
+            } else if (gameResult.includes('lose') == true) {
+                computerScore = computerScore + 1
+                computerScoreDisplay.textContent = 'Me: ' + computerScore
+            }
+    }
+
     // Event listener for the rock paper and scissor buttons, start ing with 0 for rock, 1 for paper and 2 for scissors
-    selectorButton[0].addEventListener('click', () => {
-        let result = playRound(selectorButton[0].id.toString(), getComputerChoice())
-        if (result.includes('win') == true) {
-            playerScore = playerScore + 1
-            console.log(playerScore)
-        } else if (result.includes('lose') == true) {
-            computerScore = computerScore + 1
-            console.log('computer' + computerScore)
-        }
+    rockButton.addEventListener('click', () => {
+        let result = playRound('rock', getComputerChoice())
+        checkResult(result)
     })
 
-    selectorButton[1].addEventListener('click', () => {
-        let result = playRound(selectorButton[1].id.toString(), getComputerChoice())
-        if (result.includes('win') == true) {
-            playerScore = playerScore + 1
-            console.log(playerScore)
-        } else if (result.includes('lose') == true) {
-            computerScore = computerScore + 1
-            console.log('computer' + computerScore)
-        }
+    paperButton.addEventListener('click', () => {
+        let result = playRound('paper', getComputerChoice())
+        checkResult(result)
+
     })
 
-    selectorButton[2].addEventListener('click', () => {
-        let result = playRound(selectorButton[2].id.toString(), getComputerChoice())
-        if (result.includes('win') == true) {
-            playerScore = playerScore + 1
-            console.log(playerScore)
-        } else if (result.includes('lose') == true) {
-            computerScore = computerScore + 1
-            console.log('computer' + computerScore)
-        }
+    scissorsButton.addEventListener('click', () => {
+        let result = playRound('scissors', getComputerChoice())
+        checkResult(result)
     })
 
 }
