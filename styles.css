@@ -32,14 +32,39 @@ header {
 
 .player-selector-buttons {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    padding: 1%;
 }
 
 .player-selector-buttons li {
     list-style-type: none;
+    margin: 5%;
 }
 
 .player-selector-buttons button {
     height: 100px;
     width: 100px;
+}
+
+/* Results styling */
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E5E7EB;
+    padding: 5% 0%;
+}
+
+.results p {
+ font-size: 25px;
+}
+
+.results div {
+    display: flex;
+    flex-direction: row;
+}
+
+.results h1 {
+    margin: 30px;
 }
