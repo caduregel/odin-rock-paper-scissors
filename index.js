@@ -66,6 +66,11 @@ function playGame(){
         console.log(score)
         i++
     }
+    if (score > 0) {
+        console.log('You won the most rounds, you win the game!')
+    } else if (score < 0) {
+        console.log('You lost to many games ): I win!')
+    }
 }
 
 playGame()
